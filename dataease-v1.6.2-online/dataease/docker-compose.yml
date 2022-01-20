@@ -1,0 +1,28 @@
+version: '2.1'
+services:
+
+  dataease:
+    image: registry.cn-qingdao.aliyuncs.com/dataease/dataease:v1.6.2
+    container_name: dataease
+    ports:
+      - ${DE_PORT}:8081
+    mem_limit: 4096m
+    volumes:
+      - ${DE_BASE}/dataease/conf:/opt/dataease/conf
+      - ${DE_BASE}/dataease/logs:/opt/dataease/logs
+      - ${DE_BASE}/dataease/plugins/thirdpart:/opt/dataease/plugins/thirdpart
+      - ${DE_BASE}/dataease/data/kettle:/opt/dataease/data/kettle
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - dataease-network
+
+networks:
+  dataease-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1

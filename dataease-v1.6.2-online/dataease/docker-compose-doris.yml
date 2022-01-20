@@ -1,0 +1,44 @@
+version: '2.1'
+services:
+
+  doris-fe:
+    image: registry.cn-qingdao.aliyuncs.com/dataease/doris:0.15-1125
+    container_name: doris-fe
+    environment:
+      - DORIS_ROLE=fe-leader
+    volumes:
+      - ${DE_BASE}/dataease/data/fe:/opt/doris/fe/doris-meta
+      - ${DE_BASE}/dataease/logs/fe:/opt/doris/fe/log
+      - ${DE_BASE}/dataease/conf/fe.conf:/opt/doris/fe/conf/fe.conf
+      - ${DE_BASE}/dataease/bin/doris:/docker-entrypoint-initdb.d/
+    networks:
+      dataease-network :
+        ipv4_address: 172.19.0.198
+    restart: always
+    depends_on:
+      doris-be:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -sS 127.0.0.1:8030 || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  doris-be:
+    image: registry.cn-qingdao.aliyuncs.com/dataease/doris:0.15-1125
+    container_name: doris-be
+    environment:
+      - DORIS_ROLE=be
+    volumes:
+      - ${DE_BASE}/dataease/data/be:/opt/doris/be/storage
+      - ${DE_BASE}/dataease/logs/be:/opt/doris/be/log
+      - ${DE_BASE}/dataease/conf/be.conf:/opt/doris/be/conf/be.conf
+    networks:
+      dataease-network :
+        ipv4_address: 172.19.0.199
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -sS 127.0.0.1:8040 || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
