@@ -37,16 +37,16 @@
             </configuration>
           </execution>
 
-          <execution>
-            <id>npm install</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <!-- Optional configuration which provides for running any npm command -->
-            <configuration>
-              <arguments>install --force</arguments>
-            </configuration>
-          </execution>
+<!--          <execution>-->
+<!--            <id>npm install</id>-->
+<!--            <goals>-->
+<!--              <goal>npm</goal>-->
+<!--            </goals>-->
+<!--            &lt;!&ndash; Optional configuration which provides for running any npm command &ndash;&gt;-->
+<!--            <configuration>-->
+<!--              <arguments>install &#45;&#45;force</arguments>-->
+<!--            </configuration>-->
+<!--          </execution>-->
 
           <execution>
             <id>npm run build</id>
