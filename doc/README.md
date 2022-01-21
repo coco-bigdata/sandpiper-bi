@@ -192,4 +192,13 @@ sudo curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
 
 sudo yum install -y nodejs
 sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+yum install sudo
+sudo curl -sL https://rpm.nodesource.com/setup_15.x | sudo bash -
+
+sudo yum install -y nodejs
+sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+vim ~/.bash_profile
+PATH=$HOME/git/apache-maven-3.8.4/bin:$PATH
 ```
