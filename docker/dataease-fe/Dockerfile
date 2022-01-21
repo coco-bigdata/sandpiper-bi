@@ -27,7 +27,7 @@ RUN mkdir -p /opt/dataease/drivers
 
 ADD drivers/* /opt/dataease/drivers/
 
-ADD backend/target/backend-1.6.0.jar /opt/apps
+ADD backend-1.6.0.jar /opt/apps
 
 ENV JAVA_APP_JAR=/opt/apps/backend-1.6.0.jar
 
