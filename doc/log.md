@@ -268,3 +268,38 @@ tcp        0      0 127.0.0.11:38543        0.0.0.0:*               LISTEN      
 tcp        0      0 0.0.0.0:11001           0.0.0.0:*               LISTEN      50/java
 tcp        0      0 0.0.0.0:9051            0.0.0.0:*               LISTEN      50/java
 tcp        0      0 172.19.0.2:18080        0.0.0.0:*               LISTEN      50/java
+
+
+[ERROR] Failed to execute goal on project backend: Could not resolve dependencies for project io.dataease:backend:jar:1.6.0: The following artifacts could not be resolved: pentaho-kettle:kettle-core:jar:8.3.0.18-1084, pentaho-kettle:kettle-engine:jar:8.3.0.18-1084, pentaho:metastore:jar:8.3.0.18-1084, org.pentaho.di.plugins:pdi-engine-configuration-impl:jar:8.3.0.7-683: Could not find artifact pentaho-kettle:kettle-core:jar:8.3.0.18-1084 in nexus-aliyun (https://maven.aliyun.com/repository/public) -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR]
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :backend
+
+<profile>
+<id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+
+         <repositories>
+         <repository>
+                    <id>sonatype</id>
+                    <url>https://repository.sonatype.org/content/groups/public/</url>
+                </repository>
+                <repository>
+                    <id>mvnrepository</id>
+                    <url>https://mvnrepository.com/</url>
+                </repository>
+                <repository>
+                    <id>hortonworks</id>
+                    <url>https://repo.hortonworks.com/content/repositories/releases/</url>
+                </repository>
+         </repositories>
+    </profile>
