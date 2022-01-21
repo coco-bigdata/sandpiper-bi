@@ -202,5 +202,6 @@ sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
 vim ~/.bash_profile
 PATH=$HOME/git/apache-maven-3.8.4/bin:$PATH
 
-Downloading https://nodejs.org/dist/v15.12.0/node-v15.12.0-linux-x64.tar.gz to /home/zhangchunsheng/.m2/repository/com/github/eirslett/node/15.12.0/node-15.12.0-linux-x64.tar.gz
+Downloading https://nodejs.org/dist/v15.12.0/node-v15.12.0-linux-x64.tar.gz to ~/.m2/repository/com/github/eirslett/node/15.12.0/node-15.12.0-linux-x64.tar.gz
+Downloading https://registry.npmjs.org/npm/-/npm-7.6.3.tgz to ~/.m2/repository/com/github/eirslett/npm/7.6.3/npm-7.6.3.tar.gz
 ```
