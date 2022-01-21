@@ -281,6 +281,19 @@ tcp        0      0 172.19.0.2:18080        0.0.0.0:*               LISTEN      
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <args> -rf :backend
 
+<!--<mirror>
+            <id>nexus-aliyun</id>
+            <mirrorOf>*</mirrorOf>
+            <name>Nexus aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </mirror>-->
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+            <mirrorOf>sonatype</mirrorOf>
+        </mirror>
+
 <profile>
 <id>default</id>
             <activation>
