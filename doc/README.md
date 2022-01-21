@@ -75,7 +75,7 @@ cd docker
 cp ../backend/target/backend-1.6.0.jar dataease-fe/
 sudo docker-compose build
 cd database-fe
-sudo docker build -f Dockerfile -t sgcc:v1.0 .
+sudo docker build -f Dockerfile -t sgcc-bj:v1.0 .
 sudo docker-compose up -d dataease
 
 mysql -h127.0.0.1 -P3316 -uroot -p
